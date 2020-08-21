@@ -1,31 +1,5 @@
-<table id="button_table">
-    <tr>
-        <td class="button1">
-    <div class="input-file" (click)="uploadFile1.click()">Settlement
-        <button class="ci-btn-attach" type="button" id="linkicon">
-            <i class="fa fa-link" aria-hidden="true"></i>
-            <input #uploadFile1 name="file" style="display:none;" type="file"
-            accept="application/pdf, image/*, video/*, .zip">
-        </button>
-    </div>
-</td>
-<td class="button1">
-    <div class="input-file" (click)="uploadFile2.click()">Pricing
-        <button class="ci-btn-attach" type="button" id="linkicon">
-            <i class="fa fa-link" aria-hidden="true"></i>
-            <input #uploadFile2 name="file" style="display:none;" type="file"
-            accept="application/pdf, image/*, video/*, .zip">
-        </button>
-    </div>
-</td>
-<td class="button1">
-    <div class="input-file" (click)="uploadFile3.click()">Card Processing
-        <button class="ci-btn-attach" type="button" id="linkicon">
-            <i class="fa fa-link" aria-hidden="true" ></i>
-            <input #uploadFile3 name="file" style="display:none;" type="file"
-            accept="application/pdf, image/*, video/*, .zip">
-        </button>
-    </div>
-</td>
-</tr>
-</table>
+<mat-tab-group animationDuration="0ms"  style="margin-top: 500px; margin-left:70px;">
+    <mat-tab label="Settlement">Settlement</mat-tab>
+    <mat-tab label="Pricing">Pricing</mat-tab>
+    <mat-tab label="Card Processing">Card Processing</mat-tab>
+  </mat-tab-group>
