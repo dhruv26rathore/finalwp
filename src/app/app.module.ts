@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 
 
-  import { MatTabsComponent } from '@angular/material';
+import { MatTabsComponent } from './mat-tabs/mat-tabs.component';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
