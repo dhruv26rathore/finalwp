@@ -1,25 +1,375 @@
-<div id="exTab1" class="container">	
-<ul  class="nav nav-pills">
-			<li class="active">
-        <a  href="#1a" data-toggle="tab">Settlement</a>
-			</li>
-			<li><a href="#2a" data-toggle="tab">Pricing</a>
-			</li>
-			<li><a href="#3a" data-toggle="tab">Card Processing</a>
-			</li>
-		</ul>
+//main component 
+#modulefile
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-			<div class="tab-content clearfix">
-			  <div class="tab-pane active" id="1a">
-          <h3>Settlement</h3>
-				</div>
-				<div class="tab-pane" id="2a">
-          <h3>Pricing</h3>
-				</div>
-        <div class="tab-pane" id="3a">
-          <h3>Card Processing</h3>
-				</div>
-			</div>
-  </div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsComponent } from './mat-tabs/mat-tabs.component';
+import { MatTabsModule,MatSelectModule,MatCheckboxModule,MatButtonModule,MatFormFieldModule,MatInputModule,MatIconModule} from '@angular/material';
+import { TableComponent } from './table/table.component';
+import { HeaderButtonsComponent } from './header-buttons/header-buttons.component';
+import { HeadingScreenComponent } from './heading-screen/heading-screen.component'
+@NgModule({
+  declarations: [
+    AppComponent,
+    MatTabsComponent,
+    TableComponent,
+    HeaderButtonsComponent,
+    HeadingScreenComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+#html
+<app-heading-screen></app-heading-screen>
+<app-header-buttons></app-header-buttons>
+<app-table></app-table>
+
+//header-buttons
+#html
+<div class="search-container" style="width: 138px;margin-left: 1490px; margin-top: 100px;">
+<input type="text" class="search-input" name="search-bar" placeholder="Search" style="width: 97px;border: 1px solid black;margin-left: 19px;">
+<i class="fa fa-search" style="margin: 0px;margin-left: -18px;margin-top: 14px;"></i>
+<button class="rounded" color="warn" mat-raised-button>Add</button>
+</div>
+<!-- <mat-form-field apperance="outline">
+<input matInput class="fa fa-search">
+<mat-icon>search</mat-icon>
+</mat-form-field> -->
+
+
+#css
+.rounded{
+    border-radius: 35px;
+    width:160px;
+    margin-left:20px;
+}
+.search-container {
+    display: flex;
+    font-size: 14px;
+    margin: 25px 0px;
+  }
+  
+  .search-input {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-right: none;
+    width: 100%;
+  }
+  
+  .btn.btn-default.search-btn {
+    border: 1px solid #ddd;
+    background-color: #FFFFFF !important;
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+    background-image: none;
+    box-shadow: none;
+    color: #919693;
+  }
+  
+  ::placeholder {
+    color: red;
+  }
+  
+  
+  
+#component.ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-header-buttons',
+  templateUrl: './header-buttons.component.html',
+  styleUrls: ['./header-buttons.component.css']
+})
+export class HeaderButtonsComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+
+#specs.ts
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { HeaderButtonsComponent } from './header-buttons.component';
+
+describe('HeaderButtonsComponent', () => {
+  let component: HeaderButtonsComponent;
+  let fixture: ComponentFixture<HeaderButtonsComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ HeaderButtonsComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HeaderButtonsComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+//heading-screen
+#html
+<div class="main">
+<div class="head-box">
+   <p class="text-color">Card Acceptor/Brand Details</p> 
+</div>
+<p class="para">Currency Grouping / Transaction Processing Currency List</p>
+</div>
+
+#css
+.head-box{
+    margin-left:50%;
+    width:280px;
+    height:50px;
+    border: 1px solid black;
+    background-color:#696969;
+}
+.para{
+    margin-top:60px;
+    color: red;
+}
+.text-color{
+    text-align: center;
+    color: white;
+}
+.main{
+    margin-top:80px;
+}
+
+#component.ts
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-heading-screen',
+  templateUrl: './heading-screen.component.html',
+  styleUrls: ['./heading-screen.component.css']
+})
+export class HeadingScreenComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+#specs.ts
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { HeadingScreenComponent } from './heading-screen.component';
+
+describe('HeadingScreenComponent', () => {
+  let component: HeadingScreenComponent;
+  let fixture: ComponentFixture<HeadingScreenComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ HeadingScreenComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HeadingScreenComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+
+//table
+#html
+<table id="table">
+    <tr>
+      <th>Cust Ref</th>
+      <th>MID</th>
+      <th>LCP</th>
+      <th>Merchant Name</th>
+      <th>interchange country</th>
+      <th>Card Name</th>
+      <th>Processing Agent</th>
+      <th>Acpt Commercial Card</th>
+      <th>Refund</th>
+      <th>Currency</th>
+      <th>Valid From</th>
+      <th>Valid TO</th>
+    </tr>
+    <tr>
+      <td><a>PO1674783569</a></td>
+      <td>10090654</td>
+      <td>
+        <mat-select><mat-option value="option1">Worldpay (UK) Limited</mat-option>
+            <mat-option value="option2">option 2</mat-option>
+            <mat-option value="option3">option 3</mat-option></mat-select></td>
+      <td>ABC</td>
+      <td>
+        <mat-select><mat-option value="option1">United Kingdom</mat-option>
+            <mat-option value="option2">option 2</mat-option>
+            <mat-option value="option3">option 3</mat-option></mat-select></td>
+      <td>
+        <mat-select><mat-option value="option1">Amex</mat-option>
+            <mat-option value="option2">option 2</mat-option>
+            <mat-option value="option3">option 3</mat-option></mat-select></td>
+      <td>
+        <mat-select><mat-option value="option1">American Express</mat-option>
+            <mat-option value="option2">option 2</mat-option>
+            <mat-option value="option3">option 3</mat-option></mat-select></td>
+      <td><mat-checkbox color="warn"></mat-checkbox></td>
+      <td><mat-checkbox color="warn"></mat-checkbox></td>
+      <td>GBP</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- <table>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  <td></td>
+  </table> -->
+  
+  
+  #css
+  /* #table {
+    margin-top:80px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #table td, #table th {
+    border: 2px solid #000;
+    padding: 8px;
+    width:30px;
+    /* width:fit-content; */
+    /*  */
+  /* } */
+  
+  /* #table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #A9A9A9;
+    color: black; */
+    /* word-wrap: break-word; */
+  /* } */
+  #table
+  {
+    table-layout: auto;
+    width:auto;
+    overflow:scroll;
+    overflow:visible;
+    border-collapse: collapse;
+    border:1px solid black;
+  
+  }
+  #table th
+  {
+    width:200px;
+    border-collapse: collapse;
+    border:1px solid black;
+  
+  }
+  #table td{
+    width:200px;
+    /* height:70px; */
+    border: 1px solid black;
+    padding:10px;
+    text-align:left;
+    /* display: inline-block; */
+    /* word-break: break-word; */
+  }
+
+  .mat-select {
+    /* background: red; */
+    width:220px;
+    word-break: break-word;
+}
+
+/* .mat-checkbox {
+  color: rgb(0,178,0);}
+.mat-checkbox{
+    color:black;
+    background-color: white;
+  } */
+  
+  #component.ts
+  import { Component, OnInit} from '@angular/core';
+
+@Component({
+  selector: 'app-table',
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.css']
+})
+export class TableComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+
+#specs.ts
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { TableComponent } from './table.component';
+
+describe('TableComponent', () => {
+  let component: TableComponent;
+  let fixture: ComponentFixture<TableComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ TableComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TableComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
